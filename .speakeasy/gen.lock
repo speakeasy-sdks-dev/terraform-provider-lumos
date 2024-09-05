@@ -3,21 +3,22 @@ id: c7830d5c-39eb-428e-bde1-daaba29fa325
 management:
   docChecksum: 8c43483effe5dc326d375dcc864b71eb
   docVersion: 0.1.0
-  speakeasyVersion: 1.349.1
-  generationVersion: 2.382.1
+  speakeasyVersion: internal
+  generationVersion: 2.409.6
   releaseVersion: 0.3.8
   configChecksum: bcea65b49f778ee9584de6d303adb987
 features:
   terraform:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.4
-    core: 3.24.5
-    globalSecurity: 2.81.6
+    core: 3.24.7
+    envVarSecurityUsage: 0.1.0
+    globalSecurity: 2.81.8
     globalServerURLs: 2.82.1
     nameOverrides: 2.81.2
     retries: 2.81.1
     sets: 0.1.2
-    unions: 2.81.15
+    unions: 2.81.16
 generatedFiles:
   - internal/sdk/core.go
   - internal/sdk/appstore.go
@@ -82,8 +83,8 @@ generatedFiles:
   - internal/sdk/models/operations/getaccessrequest.go
   - internal/sdk/models/operations/getaccessrequests.go
   - internal/sdk/models/operations/listvendoragreements.go
-  - internal/sdk/models/operations/createfounddocumentmultipart.go
   - internal/sdk/models/operations/createfounddocumentjson.go
+  - internal/sdk/models/operations/createfounddocumentmultipart.go
   - internal/sdk/models/operations/createorder.go
   - internal/sdk/models/operations/lumosart.go
   - internal/sdk/models/operations/lumoslivenesscheck.go
