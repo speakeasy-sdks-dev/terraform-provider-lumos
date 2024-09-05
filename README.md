@@ -6,6 +6,19 @@
 
 <no value>
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Lumos: The Lumos provider allows you to manage resources such as Apps, Permissions, and Pre-Approval Rules
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
@@ -47,12 +60,6 @@ TF_REATTACH_PROVIDERS=... terraform init
 TF_REATTACH_PROVIDERS=... terraform apply
 ```
 <!-- End SDK Example Usage [usage] -->
-
-<!-- Start Available Resources and Operations [operations] -->
-## Available Resources and Operations
-
-
-<!-- End Available Resources and Operations [operations] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

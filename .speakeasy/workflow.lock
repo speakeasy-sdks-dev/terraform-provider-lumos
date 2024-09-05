@@ -1,4 +1,4 @@
-speakeasyVersion: 1.349.1
+speakeasyVersion: internal
 sources:
     FastAPI:
         sourceNamespace: fast-api
@@ -12,7 +12,7 @@ targets:
         sourceNamespace: fast-api
         sourceRevisionDigest: sha256:8658fde83b1400f5e3db7d0ac154023835df2825052cefbacb15e274f9ffe4b5
         sourceBlobDigest: sha256:00a3332cca11ca58a96c63d25b6fe0c42bc727827fe108718e9dfecc7247a359
-        outLocation: /Users/niamh/terraform-provider-lumos
+        outLocation: /tmp/snapshot-test/df86b246d6afc79e
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
