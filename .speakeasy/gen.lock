@@ -11,7 +11,7 @@ features:
   terraform:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.4
-    core: 3.24.14
+    core: 3.25.0
     envVarSecurityUsage: 0.1.0
     globalSecurity: 2.81.8
     globalServerURLs: 2.82.1
