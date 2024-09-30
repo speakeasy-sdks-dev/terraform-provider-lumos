@@ -10,7 +10,7 @@ management:
 features:
   terraform:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.4
+    constsAndDefaults: 0.2.0
     core: 3.24.15
     envVarSecurityUsage: 0.1.0
     globalSecurity: 2.81.8
@@ -94,11 +94,14 @@ generatedFiles:
   - internal/provider/requestablepermissions_data_source.go
   - internal/provider/requestablepermissions_data_source_sdk.go
   - internal/provider/types/allowed_groups_config_input.go
+  - internal/provider/types/allowed_groups_config_output.go
   - internal/provider/types/app.go
   - internal/provider/types/app_admins_input.go
+  - internal/provider/types/app_admins_output.go
   - internal/provider/types/app_approvers_input.go
   - internal/provider/types/app_store_app_settings_provisioning_input.go
   - internal/provider/types/app_store_app_settings_request_flow_input.go
+  - internal/provider/types/app_store_app_settings_request_flow_output.go
   - internal/provider/types/base_inline_webhook.go
   - internal/provider/types/group.go
   - internal/provider/types/request_approval_config_input.go
@@ -433,7 +436,7 @@ examples:
   postAccounts:
     speakeasy-default-post-accounts:
       requestBody:
-        application/json: {"app_id": "<value>"}
+        application/json: {"accounts": [], "app_id": "<value>"}
       responses:
         "200":
           application/json: {"job_id": "<value>"}
@@ -504,10 +507,10 @@ examples:
   create_pre_approval_rule_appstore_pre_approval_rules_post:
     speakeasy-default-create-pre-approval-rule-appstore-pre-approval-rules-post:
       requestBody:
-        application/json: {"justification": "<value>", "app_id": "<value>"}
+        application/json: {"justification": "<value>", "app_id": "<value>", "preapproved_groups": [], "preapproved_permissions": [], "preapproval_webhooks": []}
       responses:
         "201":
-          application/json: {"justification": "<value>", "app_id": "<value>", "app_class_id": "<value>", "app_instance_id": "<value>"}
+          application/json: {"justification": "<value>", "app_id": "<value>", "app_class_id": "<value>", "app_instance_id": "<value>", "preapproved_groups": [], "preapproved_permissions": [], "preapproval_webhooks": []}
         "422": {}
   get_appstore_pre_approval_rule_appstore_pre_approval_rules__pre_approval_rule_id__get:
     speakeasy-default-get-appstore-pre-approval-rule-appstore-pre-approval-rules-pre-approval-rule-id-get:
@@ -516,7 +519,7 @@ examples:
           pre_approval_rule_id: "<value>"
       responses:
         "200":
-          application/json: {"justification": "<value>", "app_id": "<value>", "app_class_id": "<value>", "app_instance_id": "<value>"}
+          application/json: {"justification": "<value>", "app_id": "<value>", "app_class_id": "<value>", "app_instance_id": "<value>", "preapproved_groups": [], "preapproved_permissions": [], "preapproval_webhooks": []}
         "422": {}
   delete_pre_approval_rule_appstore_pre_approval_rules__pre_approval_rule_id__delete:
     speakeasy-default-delete-pre-approval-rule-appstore-pre-approval-rules-pre-approval-rule-id-delete:
@@ -529,10 +532,10 @@ examples:
         path:
           pre_approval_rule_id: "<id>"
       requestBody:
-        application/json: {"justification": "<value>"}
+        application/json: {"justification": "<value>", "preapproved_groups": [], "preapproved_permissions": [], "preapproval_webhooks": []}
       responses:
         "200":
-          application/json: {"justification": "<value>", "app_id": "<value>", "app_class_id": "<value>", "app_instance_id": "<value>"}
+          application/json: {"justification": "<value>", "app_id": "<value>", "app_class_id": "<value>", "app_instance_id": "<value>", "preapproved_groups": [], "preapproved_permissions": [], "preapproval_webhooks": []}
         "422": {}
   getAppStoreAppSettings:
     speakeasy-default-get-app-store-app-settings:

@@ -2,6 +2,10 @@
 
 package shared
 
+import (
+	"github.com/teamlumos/terraform-provider-lumos/internal/sdk/internal/utils"
+)
+
 type RequestApprovalConfigOutput struct {
 	// Indicates if approval flow is overridden.
 	RequestApprovalConfigOverride *bool `json:"request_approval_config_override,omitempty"`
@@ -18,7 +22,18 @@ type RequestApprovalConfigOutput struct {
 	// AppStore App stage 2 approvers assigned.
 	ApproversStage2 *AppApproversOutput `json:"approvers_stage_2,omitempty"`
 	// The stages of this request approval.
-	RequestApprovalStages []RequestApprovalStageOutput `json:"request_approval_stages,omitempty"`
+	RequestApprovalStages []RequestApprovalStageOutput `json:"request_approval_stages"`
+}
+
+func (r RequestApprovalConfigOutput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RequestApprovalConfigOutput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *RequestApprovalConfigOutput) GetRequestApprovalConfigOverride() *bool {

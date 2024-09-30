@@ -33,7 +33,7 @@ func (r *RequestablePermissionsDataSourceModel) RefreshFromSharedPageRequestable
 			if itemsItem.RequestConfig.AllowedGroups == nil {
 				items1.RequestConfig.AllowedGroups = nil
 			} else {
-				items1.RequestConfig.AllowedGroups = &tfTypes.AllowedGroupsConfigInput{}
+				items1.RequestConfig.AllowedGroups = &tfTypes.AllowedGroupsConfigOutput{}
 				items1.RequestConfig.AllowedGroups.Groups = []tfTypes.Group{}
 				for groupsCount, groupsItem := range itemsItem.RequestConfig.AllowedGroups.Groups {
 					var groups1 tfTypes.Group

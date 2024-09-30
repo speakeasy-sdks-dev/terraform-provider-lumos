@@ -27,7 +27,7 @@ func (r *RequestablePermissionDataSourceModel) RefreshFromSharedRequestablePermi
 		if resp.RequestConfig.AllowedGroups == nil {
 			r.RequestConfig.AllowedGroups = nil
 		} else {
-			r.RequestConfig.AllowedGroups = &tfTypes.AllowedGroupsConfigInput{}
+			r.RequestConfig.AllowedGroups = &tfTypes.AllowedGroupsConfigOutput{}
 			r.RequestConfig.AllowedGroups.Groups = []tfTypes.Group{}
 			if len(r.RequestConfig.AllowedGroups.Groups) > len(resp.RequestConfig.AllowedGroups.Groups) {
 				r.RequestConfig.AllowedGroups.Groups = r.RequestConfig.AllowedGroups.Groups[:len(resp.RequestConfig.AllowedGroups.Groups)]

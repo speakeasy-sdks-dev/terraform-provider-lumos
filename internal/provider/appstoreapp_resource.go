@@ -28,6 +28,7 @@ import (
 	"github.com/teamlumos/terraform-provider-lumos/internal/sdk"
 	"github.com/teamlumos/terraform-provider-lumos/internal/sdk/models/operations"
 	speakeasy_objectvalidators "github.com/teamlumos/terraform-provider-lumos/internal/validators/objectvalidators"
+	speakeasy_setvalidators "github.com/teamlumos/terraform-provider-lumos/internal/validators/setvalidators"
 	speakeasy_stringvalidators "github.com/teamlumos/terraform-provider-lumos/internal/validators/stringvalidators"
 )
 
@@ -573,7 +574,10 @@ func (r *AppStoreAppResource) Schema(ctx context.Context, req resource.SchemaReq
 										},
 									},
 								},
-								Description: `Groups assigned as support request approvers. Requires replacement if changed.`,
+								Description: `Groups assigned as support request approvers. Not Null; Requires replacement if changed.`,
+								Validators: []validator.Set{
+									speakeasy_setvalidators.NotNull(),
+								},
 							},
 							"users": schema.SetNestedAttribute{
 								Computed: true,
@@ -629,7 +633,10 @@ func (r *AppStoreAppResource) Schema(ctx context.Context, req resource.SchemaReq
 										},
 									},
 								},
-								Description: `Users assigned as support request approvers. Requires replacement if changed.`,
+								Description: `Users assigned as support request approvers. Not Null; Requires replacement if changed.`,
+								Validators: []validator.Set{
+									speakeasy_setvalidators.NotNull(),
+								},
 							},
 						},
 						Description: `AppStore App approvers assigned. Requires replacement if changed.`,
@@ -709,7 +716,10 @@ func (r *AppStoreAppResource) Schema(ctx context.Context, req resource.SchemaReq
 										},
 									},
 								},
-								Description: `Groups assigned as support request approvers. Requires replacement if changed.`,
+								Description: `Groups assigned as support request approvers. Not Null; Requires replacement if changed.`,
+								Validators: []validator.Set{
+									speakeasy_setvalidators.NotNull(),
+								},
 							},
 							"users": schema.SetNestedAttribute{
 								Computed: true,
@@ -765,7 +775,10 @@ func (r *AppStoreAppResource) Schema(ctx context.Context, req resource.SchemaReq
 										},
 									},
 								},
-								Description: `Users assigned as support request approvers. Requires replacement if changed.`,
+								Description: `Users assigned as support request approvers. Not Null; Requires replacement if changed.`,
+								Validators: []validator.Set{
+									speakeasy_setvalidators.NotNull(),
+								},
 							},
 						},
 						Description: `AppStore App stage 2 approvers assigned. Requires replacement if changed.`,

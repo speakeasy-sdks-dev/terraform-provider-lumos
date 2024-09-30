@@ -2,17 +2,32 @@
 
 package shared
 
+import (
+	"github.com/teamlumos/terraform-provider-lumos/internal/sdk/internal/utils"
+)
+
 type PreApprovalRuleUpdateInput struct {
 	// The justification of this preapproval rule.
 	Justification string `json:"justification"`
 	// Preapproval rule time access length,
 	TimeBasedAccess []TimeBasedAccessOptions `json:"time_based_access,omitempty"`
 	// The preapproved groups of this preapproval rule.
-	PreapprovedGroups []BaseGroup `json:"preapproved_groups,omitempty"`
+	PreapprovedGroups []BaseGroup `json:"preapproved_groups"`
 	// The preapproved permissions of this preapproval rule.
-	PreapprovedPermissions []RequestablePermissionBase `json:"preapproved_permissions,omitempty"`
+	PreapprovedPermissions []RequestablePermissionBase `json:"preapproved_permissions"`
 	// The preapproval webhooks of this preapproval rule.
-	PreapprovalWebhooks []BaseInlineWebhook `json:"preapproval_webhooks,omitempty"`
+	PreapprovalWebhooks []BaseInlineWebhook `json:"preapproval_webhooks"`
+}
+
+func (p PreApprovalRuleUpdateInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PreApprovalRuleUpdateInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *PreApprovalRuleUpdateInput) GetJustification() string {
@@ -31,21 +46,21 @@ func (o *PreApprovalRuleUpdateInput) GetTimeBasedAccess() []TimeBasedAccessOptio
 
 func (o *PreApprovalRuleUpdateInput) GetPreapprovedGroups() []BaseGroup {
 	if o == nil {
-		return nil
+		return []BaseGroup{}
 	}
 	return o.PreapprovedGroups
 }
 
 func (o *PreApprovalRuleUpdateInput) GetPreapprovedPermissions() []RequestablePermissionBase {
 	if o == nil {
-		return nil
+		return []RequestablePermissionBase{}
 	}
 	return o.PreapprovedPermissions
 }
 
 func (o *PreApprovalRuleUpdateInput) GetPreapprovalWebhooks() []BaseInlineWebhook {
 	if o == nil {
-		return nil
+		return []BaseInlineWebhook{}
 	}
 	return o.PreapprovalWebhooks
 }

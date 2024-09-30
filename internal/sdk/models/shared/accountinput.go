@@ -2,6 +2,10 @@
 
 package shared
 
+import (
+	"github.com/teamlumos/terraform-provider-lumos/internal/sdk/internal/utils"
+)
+
 type AccountInput struct {
 	// A unique identifier for this account, such as an account ID or email.
 	UniqueIdentifier string `json:"unique_identifier"`
@@ -18,9 +22,20 @@ type AccountInput struct {
 	// The status of the account.
 	Status *AccountLifecycleStatus `json:"status,omitempty"`
 	// The permissions of the account.
-	Permissions []PermissionInput `json:"permissions,omitempty"`
+	Permissions []PermissionInput `json:"permissions"`
 	// The attributes of the account.
-	Attributes []AttributeInput `json:"attributes,omitempty"`
+	Attributes []AttributeInput `json:"attributes"`
+}
+
+func (a AccountInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *AccountInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *AccountInput) GetUniqueIdentifier() string {
@@ -74,14 +89,14 @@ func (o *AccountInput) GetStatus() *AccountLifecycleStatus {
 
 func (o *AccountInput) GetPermissions() []PermissionInput {
 	if o == nil {
-		return nil
+		return []PermissionInput{}
 	}
 	return o.Permissions
 }
 
 func (o *AccountInput) GetAttributes() []AttributeInput {
 	if o == nil {
-		return nil
+		return []AttributeInput{}
 	}
 	return o.Attributes
 }

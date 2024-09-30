@@ -27,6 +27,7 @@ import (
 	"github.com/teamlumos/terraform-provider-lumos/internal/sdk/models/operations"
 	custom_objectvalidators "github.com/teamlumos/terraform-provider-lumos/internal/validators/objectvalidators"
 	speakeasy_objectvalidators "github.com/teamlumos/terraform-provider-lumos/internal/validators/objectvalidators"
+	speakeasy_setvalidators "github.com/teamlumos/terraform-provider-lumos/internal/validators/setvalidators"
 	speakeasy_stringvalidators "github.com/teamlumos/terraform-provider-lumos/internal/validators/stringvalidators"
 )
 
@@ -369,7 +370,10 @@ func (r *RequestablePermissionResource) Schema(ctx context.Context, req resource
 												},
 											},
 										},
-										Description: `Groups assigned as support request approvers.`,
+										Description: `Groups assigned as support request approvers. Not Null`,
+										Validators: []validator.Set{
+											speakeasy_setvalidators.NotNull(),
+										},
 									},
 									"users": schema.SetNestedAttribute{
 										Computed: true,
@@ -434,7 +438,10 @@ func (r *RequestablePermissionResource) Schema(ctx context.Context, req resource
 												},
 											},
 										},
-										Description: `Users assigned as support request approvers.`,
+										Description: `Users assigned as support request approvers. Not Null`,
+										Validators: []validator.Set{
+											speakeasy_setvalidators.NotNull(),
+										},
 									},
 								},
 								Description: `AppStore App approvers assigned.`,
@@ -520,7 +527,10 @@ func (r *RequestablePermissionResource) Schema(ctx context.Context, req resource
 												},
 											},
 										},
-										Description: `Groups assigned as support request approvers.`,
+										Description: `Groups assigned as support request approvers. Not Null`,
+										Validators: []validator.Set{
+											speakeasy_setvalidators.NotNull(),
+										},
 									},
 									"users": schema.SetNestedAttribute{
 										Computed: true,
@@ -585,7 +595,10 @@ func (r *RequestablePermissionResource) Schema(ctx context.Context, req resource
 												},
 											},
 										},
-										Description: `Users assigned as support request approvers.`,
+										Description: `Users assigned as support request approvers. Not Null`,
+										Validators: []validator.Set{
+											speakeasy_setvalidators.NotNull(),
+										},
 									},
 								},
 								Description: `AppStore App stage 2 approvers assigned.`,

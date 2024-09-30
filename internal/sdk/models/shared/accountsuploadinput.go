@@ -2,16 +2,31 @@
 
 package shared
 
+import (
+	"github.com/teamlumos/terraform-provider-lumos/internal/sdk/internal/utils"
+)
+
 type AccountsUploadInput struct {
 	// Accounts to upload.
-	Accounts []AccountInput `json:"accounts,omitempty"`
+	Accounts []AccountInput `json:"accounts"`
 	// The ID of the app to upload accounts to.
 	AppID string `json:"app_id"`
 }
 
+func (a AccountsUploadInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *AccountsUploadInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
 func (o *AccountsUploadInput) GetAccounts() []AccountInput {
 	if o == nil {
-		return nil
+		return []AccountInput{}
 	}
 	return o.Accounts
 }

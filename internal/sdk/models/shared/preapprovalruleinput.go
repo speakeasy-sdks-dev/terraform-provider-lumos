@@ -2,6 +2,10 @@
 
 package shared
 
+import (
+	"github.com/teamlumos/terraform-provider-lumos/internal/sdk/internal/utils"
+)
+
 type PreApprovalRuleInput struct {
 	// The justification of this preapproval rule.
 	Justification string `json:"justification"`
@@ -10,11 +14,22 @@ type PreApprovalRuleInput struct {
 	// The ID of the app associated with this pre-approval rule.
 	AppID string `json:"app_id"`
 	// The preapproved groups of this preapproval rule.
-	PreapprovedGroups []BaseGroup `json:"preapproved_groups,omitempty"`
+	PreapprovedGroups []BaseGroup `json:"preapproved_groups"`
 	// The preapproved permissions of this preapproval rule.
-	PreapprovedPermissions []RequestablePermissionBase `json:"preapproved_permissions,omitempty"`
+	PreapprovedPermissions []RequestablePermissionBase `json:"preapproved_permissions"`
 	// The preapproval webhooks of this preapproval rule.
-	PreapprovalWebhooks []BaseInlineWebhook `json:"preapproval_webhooks,omitempty"`
+	PreapprovalWebhooks []BaseInlineWebhook `json:"preapproval_webhooks"`
+}
+
+func (p PreApprovalRuleInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *PreApprovalRuleInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (o *PreApprovalRuleInput) GetJustification() string {
@@ -40,21 +55,21 @@ func (o *PreApprovalRuleInput) GetAppID() string {
 
 func (o *PreApprovalRuleInput) GetPreapprovedGroups() []BaseGroup {
 	if o == nil {
-		return nil
+		return []BaseGroup{}
 	}
 	return o.PreapprovedGroups
 }
 
 func (o *PreApprovalRuleInput) GetPreapprovedPermissions() []RequestablePermissionBase {
 	if o == nil {
-		return nil
+		return []RequestablePermissionBase{}
 	}
 	return o.PreapprovedPermissions
 }
 
 func (o *PreApprovalRuleInput) GetPreapprovalWebhooks() []BaseInlineWebhook {
 	if o == nil {
-		return nil
+		return []BaseInlineWebhook{}
 	}
 	return o.PreapprovalWebhooks
 }

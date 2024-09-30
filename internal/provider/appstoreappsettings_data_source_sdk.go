@@ -49,11 +49,11 @@ func (r *AppStoreAppSettingsDataSourceModel) RefreshFromSharedAppStoreAppSetting
 		if resp.RequestFlow == nil {
 			r.RequestFlow = nil
 		} else {
-			r.RequestFlow = &tfTypes.AppStoreAppSettingsRequestFlowInput{}
+			r.RequestFlow = &tfTypes.AppStoreAppSettingsRequestFlowOutput{}
 			if resp.RequestFlow.Admins == nil {
 				r.RequestFlow.Admins = nil
 			} else {
-				r.RequestFlow.Admins = &tfTypes.AppAdminsInput{}
+				r.RequestFlow.Admins = &tfTypes.AppAdminsOutput{}
 				r.RequestFlow.Admins.Groups = []tfTypes.Group{}
 				if len(r.RequestFlow.Admins.Groups) > len(resp.RequestFlow.Admins.Groups) {
 					r.RequestFlow.Admins.Groups = r.RequestFlow.Admins.Groups[:len(resp.RequestFlow.Admins.Groups)]
@@ -112,7 +112,7 @@ func (r *AppStoreAppSettingsDataSourceModel) RefreshFromSharedAppStoreAppSetting
 			if resp.RequestFlow.AllowedGroups == nil {
 				r.RequestFlow.AllowedGroups = nil
 			} else {
-				r.RequestFlow.AllowedGroups = &tfTypes.AllowedGroupsConfigInput{}
+				r.RequestFlow.AllowedGroups = &tfTypes.AllowedGroupsConfigOutput{}
 				r.RequestFlow.AllowedGroups.Groups = []tfTypes.Group{}
 				if len(r.RequestFlow.AllowedGroups.Groups) > len(resp.RequestFlow.AllowedGroups.Groups) {
 					r.RequestFlow.AllowedGroups.Groups = r.RequestFlow.AllowedGroups.Groups[:len(resp.RequestFlow.AllowedGroups.Groups)]

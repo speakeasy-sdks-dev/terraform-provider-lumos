@@ -46,12 +46,12 @@ resource "lumos_pre_approval_rule" "my_preapprovalrule" {
 
 - `app_id` (String) The ID of the app associated with this pre-approval rule. Requires replacement if changed.
 - `justification` (String) The justification of this preapproval rule.
-
-### Optional
-
 - `preapproval_webhooks` (Attributes List) The preapproval webhooks of this preapproval rule. (see [below for nested schema](#nestedatt--preapproval_webhooks))
 - `preapproved_groups` (Attributes List) The preapproved groups of this preapproval rule. (see [below for nested schema](#nestedatt--preapproved_groups))
 - `preapproved_permissions` (Attributes List) The preapproved permissions of this preapproval rule. (see [below for nested schema](#nestedatt--preapproved_permissions))
+
+### Optional
+
 - `time_based_access` (List of String) Preapproval rule time access length,
 
 ### Read-Only

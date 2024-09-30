@@ -6,7 +6,7 @@ import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type RequestConfigOutput struct {
 	AccessRemovalInlineWebhook     *BaseInlineWebhook             `tfsdk:"access_removal_inline_webhook"`
-	AllowedGroups                  *AllowedGroupsConfigInput      `tfsdk:"allowed_groups"`
+	AllowedGroups                  *AllowedGroupsConfigOutput     `tfsdk:"allowed_groups"`
 	AllowedGroupsOverride          types.Bool                     `tfsdk:"allowed_groups_override"`
 	AppstoreVisibility             types.String                   `tfsdk:"appstore_visibility"`
 	RequestApprovalConfig          *RequestApprovalConfigOutput   `tfsdk:"request_approval_config"`

@@ -250,8 +250,8 @@ Read-Only:
 
 Optional:
 
-- `groups` (Attributes Set) Groups assigned as support request approvers. Requires replacement if changed. (see [below for nested schema](#nestedatt--request_flow--approvers--groups))
-- `users` (Attributes Set) Users assigned as support request approvers. Requires replacement if changed. (see [below for nested schema](#nestedatt--request_flow--approvers--users))
+- `groups` (Attributes Set) Groups assigned as support request approvers. Not Null; Requires replacement if changed. (see [below for nested schema](#nestedatt--request_flow--approvers--groups))
+- `users` (Attributes Set) Users assigned as support request approvers. Not Null; Requires replacement if changed. (see [below for nested schema](#nestedatt--request_flow--approvers--users))
 
 <a id="nestedatt--request_flow--approvers--groups"></a>
 ### Nested Schema for `request_flow.approvers.groups`
@@ -291,8 +291,8 @@ Read-Only:
 
 Optional:
 
-- `groups` (Attributes Set) Groups assigned as support request approvers. Requires replacement if changed. (see [below for nested schema](#nestedatt--request_flow--approvers_stage_2--groups))
-- `users` (Attributes Set) Users assigned as support request approvers. Requires replacement if changed. (see [below for nested schema](#nestedatt--request_flow--approvers_stage_2--users))
+- `groups` (Attributes Set) Groups assigned as support request approvers. Not Null; Requires replacement if changed. (see [below for nested schema](#nestedatt--request_flow--approvers_stage_2--groups))
+- `users` (Attributes Set) Users assigned as support request approvers. Not Null; Requires replacement if changed. (see [below for nested schema](#nestedatt--request_flow--approvers_stage_2--users))
 
 <a id="nestedatt--request_flow--approvers_stage_2--groups"></a>
 ### Nested Schema for `request_flow.approvers_stage_2.groups`
